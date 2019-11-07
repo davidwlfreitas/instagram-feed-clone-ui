@@ -7,6 +7,8 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import { Image, Platform } from 'react-native';
+import logo from '../assets/instagram.png';
 import { StackNavigator, DrawerNavigator } from 'vue-native-router';
 import { Root } from 'native-base';
 import LoginScreen from './screens/login.vue';
@@ -14,15 +16,17 @@ import Sidebar from './screens/sidebar.vue';
 import HomeScreen from './screens/home/index.vue';
 import Brands from './components/brands.vue';
 import WelcomeScreen from './components/welcome.vue';
+import FeedScreen from './screens/feed/index.vue';
 
 const Drawer = DrawerNavigator(
   {
     Home: { screen: HomeScreen },
     Brands: { screen: Brands },
     Welcome: { screen: WelcomeScreen },
+    Feed: { screen: FeedScreen },
   },
   {
-    initialRouteName: 'Brands',
+    initialRouteName: 'Feed',
     contentComponent: props => <Sidebar {...props} />,
   },
 );
@@ -34,7 +38,14 @@ const AppNavigation = StackNavigator(
   },
   {
     initialRouteName: 'Drawer',
-    headerMode: 'none',
+    headerLayoutPreset: 'center',
+    navigationOptions: {
+      headerTitle: <Image source={logo} />,
+      headerStyle: {
+        backgroundColor: '#f5f5f5',
+        alignSelf: 'center',
+      },
+    },
   },
 );
 export default {
