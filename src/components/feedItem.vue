@@ -12,9 +12,10 @@
     </view>
 
     <view class="post-image">
-      <Image
+      <lazy-image
+        :aspectRatio="item.aspectRatio"
+        :smallSource="{ uri: item.small }"
         :source="{ uri: item.image }"
-        :style="{ aspectRatio: item.aspectRatio, width: '100%' }"
       />
     </view>
 
@@ -30,9 +31,13 @@
 </template>
 
 <script>
+import LazyImage from './lazyImage';
 export default {
   props: {
     item: Object,
+  },
+  components: {
+    LazyImage,
   },
 };
 </script>

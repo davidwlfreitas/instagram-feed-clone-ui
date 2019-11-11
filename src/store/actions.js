@@ -37,11 +37,3 @@ export function LOGOUT({ commit, state }, callback) {
 export function SET_ORGANIZATION({ commit, state }, { organization }) {
   return commit('SET_CURRENT_ORGANIZATION', { organization });
 }
-
-export function SET_FEED({ commit }, { feed }) {
-  return commit('SET_CURRENT_FEED', { feed });
-}
-
-export function SET_PAGE({ commit }, { page }) {
-  return commit('SET_CURRENT_PAGE', { page });
-}

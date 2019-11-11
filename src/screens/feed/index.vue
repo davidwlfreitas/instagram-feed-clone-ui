@@ -6,9 +6,12 @@
         :data="feed"
         :keyExtractor="post => String(post.id)"
         :render-item="item => handleFeedRendering(item)"
+        :onViewableItemsChanged="handleViewableChanged"
         onEndReachedTreshold="0.1"
-        initialNumToRender="10"
-        :onEndReached="loadPage.bind(this)"
+        :initialNumToRender="perPage"
+        :onEndReached="loadPage"
+        :onRefresh="refreshList"
+        :refreshing="refreshing"
       />
     </view>
     <nb-spinner v-if="loading" color="#000" class="loading" />
@@ -19,7 +22,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import FeedItem from '../../components/feedItem.vue';
-import store from '../../store';
 export default {
   mounted() {
     this.loadPage();
@@ -27,39 +29,47 @@ export default {
   data() {
     return {
       loading: false,
-      lastPage: 0,
+      refreshing: false,
+      currentPage: 1,
+      totalPages: 1,
+      feed: [],
+      shouldRefresh: false,
+      perPage: 5,
+      viewable: [],
     };
-  },
-  computed: {
-    feed() {
-      return store.state.feed;
-    },
-    currentPage() {
-      return store.state.page;
-    },
   },
   methods: {
     handleFeedRendering(feed) {
       return <FeedItem item={feed.item} />;
     },
-    loadPage() {
+    handleViewableChanged(items) {
+      this.viewable = items.viewableItems.map(({ item }) => item.id);
+    },
+    async loadPage() {
+      if (this.currentPage > this.totalPages) return;
       this.loading = true;
-      if (this.currentPage > this.lastPage) {
-        this.lastPage = this.currentPage;
-        fetch(
-          `http://localhost:3000/feed?_expand=author&limit=5&_page=${this.currentPage}`,
-        )
-          .then(response => response.json())
-          .then(responseJson => {
-            this.loading = false;
-            if (responseJson && responseJson.length) {
-              store.dispatch('SET_FEED', {
-                feed: [...this.feed, ...responseJson],
-              });
-              store.dispatch('SET_PAGE', { page: this.currentPage + 1 });
-            }
-          });
-      }
+      fetch(
+        `http://localhost:3000/feed?_expand=author&_limit=${this.perPage}&_page=${this.currentPage}`,
+      ).then(async response => {
+        let responseJson = await response.json();
+        let totalItems = response.headers.get('X-Total-Count');
+        this.loading = false;
+        if (responseJson && responseJson.length) {
+          this.feed = this.shouldRefresh
+            ? responseJson
+            : [...this.feed, ...responseJson];
+          this.currentPage += 1;
+          this.shouldRefresh = false;
+          this.totalPages = Math.floor(totalItems / this.perPage);
+        }
+      });
+    },
+    async refreshList() {
+      this.refreshing = true;
+      this.currentPage = 1;
+      this.shouldRefresh = true;
+      await this.loadPage(true);
+      this.refreshing = false;
     },
   },
 };

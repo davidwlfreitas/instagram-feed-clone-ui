@@ -20,8 +20,6 @@ const store = new Vuex.Store({
     posts: [],
     logging_in: false,
     userObj: {},
-    feed: [],
-    page: 1,
   },
 });
 
