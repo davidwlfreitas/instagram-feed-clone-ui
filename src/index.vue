@@ -7,7 +7,7 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Image, Platform } from 'react-native';
+import { Image } from 'react-native';
 import logo from '../assets/instagram.png';
 import { StackNavigator, DrawerNavigator } from 'vue-native-router';
 import { Root } from 'native-base';
@@ -40,11 +40,12 @@ const AppNavigation = StackNavigator(
     initialRouteName: 'Drawer',
     headerLayoutPreset: 'center',
     navigationOptions: {
-      headerTitle: <Image source={logo} />,
-      headerStyle: {
-        backgroundColor: '#f5f5f5',
-        alignSelf: 'center',
-      },
+      headerTitle: (
+        <Image
+          style={{ justifyContent: 'center', alignItems: 'center' }}
+          source={logo}
+        />
+      ),
     },
   },
 );

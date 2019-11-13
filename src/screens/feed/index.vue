@@ -5,9 +5,9 @@
         :style="{ height: '100%' }"
         :data="feed"
         :keyExtractor="post => String(post.id)"
+        :viewabilityConfig="{ itemVisiblePercentThreshold: 50 }"
         :render-item="item => handleFeedRendering(item)"
-        :onViewableItemsChanged="handleViewableChanged"
-        onEndReachedTreshold="0.1"
+        :onEndReachedTreshold="0.1"
         :initialNumToRender="perPage"
         :onEndReached="loadPage"
         :onRefresh="refreshList"
@@ -35,21 +35,17 @@ export default {
       feed: [],
       shouldRefresh: false,
       perPage: 5,
-      viewable: [],
     };
   },
   methods: {
     handleFeedRendering(feed) {
       return <FeedItem item={feed.item} />;
     },
-    handleViewableChanged(items) {
-      this.viewable = items.viewableItems.map(({ item }) => item.id);
-    },
     async loadPage() {
       if (this.currentPage > this.totalPages) return;
       this.loading = true;
       fetch(
-        `http://localhost:3000/feed?_expand=author&_limit=${this.perPage}&_page=${this.currentPage}`,
+        `http://10.0.0.78:3333/feed?_expand=author&_limit=${this.perPage}&_page=${this.currentPage}`,
       ).then(async response => {
         let responseJson = await response.json();
         let totalItems = response.headers.get('X-Total-Count');

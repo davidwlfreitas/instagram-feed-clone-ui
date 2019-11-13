@@ -49,14 +49,14 @@ export default {
     align-items: center;
 }
 .author-avatar {
-  width: 32;
-  height: 32;
-  border-radius: 16;
+  width: 40;
+  height: 16;
+  border-radius: 20;
   margin-right: 10;
 }
 .author-name {
     color: #333;
-    font-weight: bold;
+    font-weight: 600;
 }
 .post-description {
     padding: 15px;

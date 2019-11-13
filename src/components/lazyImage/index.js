@@ -10,7 +10,7 @@ export default class LazyImage extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ loaded: true });
-    }, 1000);
+    }, 500);
   }
   render() {
     const animationStyles = {
@@ -21,7 +21,7 @@ export default class LazyImage extends Component {
     function handleAnimate(opacity) {
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 5000,
+        duration: 1000,
         useNativeDriver: true,
       }).start();
     }
