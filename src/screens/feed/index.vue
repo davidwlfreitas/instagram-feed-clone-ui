@@ -21,6 +21,7 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import Settings from '../../../settings';
 import FeedItem from '../../components/feedItem.vue';
 export default {
   mounted() {
@@ -45,7 +46,7 @@ export default {
       if (this.currentPage > this.totalPages) return;
       this.loading = true;
       fetch(
-        `http://10.0.0.78:3333/feed?_expand=author&_limit=${this.perPage}&_page=${this.currentPage}`,
+        `${Settings.baseUrl}?_expand=author&_limit=${this.perPage}&_page=${this.currentPage}`,
       ).then(async response => {
         let responseJson = await response.json();
         let totalItems = response.headers.get('X-Total-Count');
