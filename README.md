@@ -40,12 +40,12 @@ or
 
     $ yarn
 
-# :satellite: Running a Mock API
+## :satellite: Running a Mock API
 
 
     $ json-server --host YOUR_IP --watch server.json
 
-# :electric_plug: Integrating Mock API to the App
+## :electric_plug: Integrating Mock API to the App
 
     To integrate the mock API to the app you just have to add your IP again on ~/settings/index.js 
 
