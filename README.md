@@ -9,6 +9,29 @@ An Instagram Feed Clone UI app made with [vue-native](https://vue-native.io/) us
 [![Forks](https://img.shields.io/github/forks/davidwlfreitas/instagram-feed-clone-ui?color=%23f06040&style=flat-square)](https://github.com/davidwlfreitas/instagram-feed-clone-ui/network/members)
 [![Contributors](https://img.shields.io/github/contributors/davidwlfreitas/instagram-feed-clone-ui?color=f06040&style=flat-square)](https://github.com/davidwlfreitas/instagram-feed-clone-ui/graphs/contributors)
 
+# :clapper: Preview
+
+---
+
+<p align="center">
+    <img src="preview.gif" width="700"/>
+</p>
+
+---
+
+# :pushpin: Table of Contents
+
+* [Features](#rocket-features)
+* [System Requirements](#computer-system-requirements)
+* [Installation](#construction_worker-installation)
+* [Running a Mock API](#satellite-running-a-mock-api)
+* [Integrating Mock API to the App](#electric_plug-integrating-mock-api-to-the-app)
+* [Running the App](#tophat-running-the-app)
+* [Found a bug? Missing a specific feature?](#bug-issues)
+* [Contributing](#tada-contributing)
+* [License](#closed_book-license)
+* [Credits](#confetti_ball-credits-to-rocketseat)
+
 # :rocket: Features
 
 - Infinite scroll
@@ -16,11 +39,7 @@ An Instagram Feed Clone UI app made with [vue-native](https://vue-native.io/) us
 - Preload blurred images
 - Pull to Refresh
 
-# :clapper: Preview
-
-![Preview](preview.gif)
-
-# :pushpin: System Requirements
+# :computer: System Requirements
 
  - Globally installed node >= 6.0
  - Globally installed npm or yarn
@@ -77,11 +96,19 @@ or
 
 This works just like start, but also attempts to open your app on a connected Android device or emulator. It requires an installation of Android build tools (see the React Native docs for detailed setup).
 
+# :bug: Issues
+
+Feel free to **file a new issue** with a respective title and description on the the [Instagram Feed Clone UI](https://github.com/davidwlfreitas/instagram-feed-clone-ui/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/davidwlfreitas/instagram-feed-clone-ui/blob/master/CONTRIBUTING.md) to find out about the coding standards.
+
+# :tada: Contributing
+
+Check out the [contributing](https://github.com/davidwlfreitas/instagram-feed-clone-ui/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
+
 # :closed_book: License
 
 Released in 2019. This project is under the [MIT license](https://github.com/davidwlfreitas/instagram-feed-clone-ui/blob/master/LICENSE).
 
-# :tada: Credits to [Rocketseat](https://rocketseat.com.br/)
+# :confetti_ball: Credits to [Rocketseat](https://rocketseat.com.br/)
 
 A huge thanks to the Rocketseat Team for the amazing contribution through excellent React Native Training Courses.
 
