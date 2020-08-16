@@ -4,7 +4,7 @@
 An Instagram Feed Clone UI app made with [vue-native](https://vue-native.io/) using [vuex](https://vuex.vuejs.org/), [JSON Server](https://github.com/typicode/json-server),  [expo](https://docs.expo.io/) and [nativebase](https://nativebase.io/).
 
 [![Author](https://img.shields.io/badge/author-DavidFreitas-f06040?style=flat-square)](https://github.com/davidwlfreitas)
-[![Languages](https://img.shields.io/github/languages/count/davidwlfreitas/instagram-feed-clone-ui?color=%238b10ae&style=flat-square)](#)
+[![Languages](https://img.shields.io/github/languages/count/davidwlfreitas/instagram-feed-clone-ui?color=%23f06040&style=flat-square)](#)
 [![Stars](https://img.shields.io/github/stars/davidwlfreitas/instagram-feed-clone-ui?color=f06040&style=flat-square)](https://github.com/davidwlfreitas/instagram-feed-clone-ui/stargazers)
 [![Forks](https://img.shields.io/github/forks/davidwlfreitas/instagram-feed-clone-ui?color=%23f06040&style=flat-square)](https://github.com/davidwlfreitas/instagram-feed-clone-ui/network/members)
 [![Contributors](https://img.shields.io/github/contributors/davidwlfreitas/instagram-feed-clone-ui?color=f06040&style=flat-square)](https://github.com/davidwlfreitas/instagram-feed-clone-ui/graphs/contributors)
